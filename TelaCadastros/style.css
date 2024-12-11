@@ -1,0 +1,598 @@
+/* Estilos omitidos por brevidade. Adicione isso ao final do seu arquivo CSS */
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Adicionando para garantir que padding e border não alterem o tamanho dos elementos */
+    font-family: "Montserrat", sans-serif;
+}
+
+.overlay-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo escura semi-transparente */
+  z-index: 1; /* Garante que a camada de fundo esteja acima de todos os outros elementos, exceto o modal */
+}
+
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 3;
+
+}
+
+.boxcad{
+  width: 40%;
+  padding: 1%;
+  margin-top: 0%;
+  margin-left: 10%;
+  border-radius: 12px;
+  color:rgb(0, 0, 0);
+  background-color:white;
+  height: 5%;
+  margin: 0.2%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Alterado para layout de coluna */
+    justify-content: center; /* Centralizando conteúdo verticalmente */
+    align-items: center; /* Centralizando conteúdo horizontalmente */
+    min-height: 30vh; /* Garantindo que a página ocupe pelo menos a altura da tela */
+    background-color: rgba(228, 232, 244, 1);
+}
+
+span {      
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Estilos para o cabeçalho */
+.header {
+  background-color: rgba(228, 232, 244, 1);
+  color: rgba(43, 43, 100, 1);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 10px;
+}
+
+/* Estilos para os botões de cadastro */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centralizando os botões horizontalmente */
+    margin-top: 20px;
+}
+
+.button {
+  background-color: rgba(43, 43, 100, 1);
+  border: none;
+  color: white;
+  padding: 23px 140px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+
+.filter-icon {
+  cursor: pointer;
+}
+
+.filter-dropdown {
+  position: fixed;
+  top: 180px;
+  left: 200;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px
+  ;
+}
+
+.filter-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-dropdown ul li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.filter-dropdown ul li:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* Estilos para o formulário de pesquisa */
+.search-container {
+    display: flex;
+    align-items: center; /* Centralizando verticalmente */
+    margin-top: 20px; /* Ajustando margem do topo */
+}
+
+.search-box {
+    padding: 10px;
+    width: 747px;
+    max-width: 747px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.search-button {
+    background-color: rgba(43, 43, 100, 1);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 10px; /* Adicionado espaçamento à esquerda */
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-button a:hover {
+  background-color: rgb(101, 101, 189);
+}
+/* sidebar*/
+.sidebar {
+  height: 100%;
+  width: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 43, 100, 1);
+  padding-top: 20px;
+  transition: width 0.1s;
+  z-index: 0;
+  border-radius: 0 5% 5% 0;
+  font-size: 15px;
+  color: rgba(148, 168, 207, 1);
+}
+
+.sidebar a {
+  padding: 12px;
+  text-decoration: none;
+  color: rgba(148, 168, 207, 1);
+  display: flex;
+  align-items: center;
+  transition: padding 1s;
+  position: relative;
+}
+
+.sidebar a:hover::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(148, 168, 207, 0.6);
+  left: calc(50% - 20px);
+  top: calc(50% - 20px);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open a:hover::before {
+  left: calc(22% - 18px - 25px);
+}
+
+.sidebar a:hover::before {
+  transform: scale(1);
+}
+
+.sidebar.open .sidebar-header a::before {
+  display: none;
+}
+
+.main-content {
+  margin-left: 50px;
+  padding: 20px;
+}
+
+.icon-text {
+  display: none;
+  color: rgba(148, 168, 207, 0.6);
+}
+.icon-text:hover {
+  display: block;
+  color: rgb(222, 222, 222); 
+}
+
+.sidebar.open a {
+  padding: 12px 20px;
+  padding-left: 20px;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar.open .icon-text {
+  display: inline;
+}
+
+.sidebar.open .icon-middle {
+  margin-bottom: 15px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 100px;
+}
+
+.sidebar-header a {
+  margin-right: 10px;
+}
+
+.icon-middle {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sidebar.open .icon-middle {
+  padding-right: 10px;
+}
+
+.sidebar.open .icon-middle .icon-text {
+  margin-left: 12px;
+}
+
+.bottom-icons {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+
+.bottom-icons a {
+  display: block;
+  padding: 12px;
+  color: rgba(148, 168, 207, 1);
+  transition: padding 1s;
+  text-decoration: none;
+}
+.sidebar.open .bottom-middle {
+  padding-right: 10px;
+}
+
+.sidebar.open .bottom-icons .icon-text {
+  margin-left: 10px;
+}
+/* fim sidebar */
+  
+
+#cadastro {
+
+    background-color: #f0f0f0;
+    border-radius: 3%;
+    padding: 50px 35px;
+    z-index: 9000;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+#cadastro h1 {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgba(43, 43, 100, 1);
+}
+
+#cadastro p {
+    margin-bottom: 15px;
+}
+
+
+#cadastro input[type="text"],
+#cadastro input[type="email"] {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color:rgba(43, 43, 100, 1);
+}
+
+#cadastro input[type="submit"],
+#cadastro input[type="nutton"],
+#cadastro button {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: rgba(43, 43, 100, 1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#cadastro input[type="submit"]:hover,
+#cadastro input[type="button"]:hover {
+    background-color: rgb(65, 65, 129);
+}
+
+/* cadastro 2 */
+#cadastro2 {
+
+    background-color: #f0f0f0;
+    border-radius: 3%;
+    padding: 50px 35px;
+    z-index: 9000;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+#cadastro2 h2 {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgba(43, 43, 100, 1);
+}
+
+#cadastro p {
+    margin-bottom: 15px;
+}
+
+
+
+#cadastro2 input[type="text"],
+#cadastro2 input[type="email"] {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: rgba(43, 43, 100, 1);;
+}
+
+#cadastro2 input[type="submit"],
+#cadastro2 input[type="nutton"],
+#cadastro2 button {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: rgba(43, 43, 100, 1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#cadastro2 input[type="submit"]:hover,
+#cadastro2 input[type="button"]:hover {
+    background-color: rgb(73, 73, 122);
+}
+
+
+#cadastro2 select { 
+    color: rgba(43, 43, 100, 1);
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* cadastro 3 */
+
+#cadastro3 {
+
+  background-color: #f0f0f0;
+  border-radius: 3%;
+  padding: 50px 35px;
+  z-index: 9000;
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+#cadastro3 h2 {
+  font-size: 110%;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgba(43, 43, 100, 1);
+}
+
+#cadastro p {
+  margin-bottom: 15px;
+}
+
+
+
+#cadastro3 input[type="text"],
+#cadastro3 input[type="email"] {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: rgba(43, 43, 100, 1);;
+}
+
+#cadastro3 input[type="submit"],
+#cadastro3 input[type="nutton"],
+#cadastro3 button {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: rgba(43, 43, 100, 1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+#cadastro3 input[type="submit"]:hover,
+#cadastro3 input[type="button"]:hover {
+  background-color: rgb(65, 65, 129);
+}
+
+
+#cadastro3 select { 
+  color: rgba(43, 43, 100, 1);
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+.content {
+  background-color: rgba(228, 232, 244, 1);
+  color: rgba(43, 43, 100, 1);
+  text-align: center;
+  padding: 20px 0;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  width: 45%;
+}
+
+.boxAuditoria {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.boxAuditoria:hover {
+  background-color: #2b2b64;
+  color: white;
+  cursor: pointer;
+}
+
+.infoAuditoria {
+  font-family: var(--fonteInter);
+
+  font-size: 16px;
+}
+
+.timeAuditoria {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+
+.modal {
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  margin: 10% auto;
+  padding: 20px;
+  width: 40%;
+  height: 70%;
+  background-color: #f0f0f0;
+  border-radius: 3%;
+  z-index: 1;
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+.modal-view{
+  font-size: medium;
+  color: rgba(43, 43, 100, 1);
+  align-items: center;
+  
+}
+.paragraph{
+  padding: 10px;
+  margin: 2%;
+  border-radius: 10%;
+  color: rgba(43, 43, 100, 1);
+  background: white;
+}
+
+.editandomano{
+  font-size: medium;
+  color: rgba(43, 43, 100, 1);
+  align-items: center;
+}
+
+.inputedit{
+  border: none;
+  outline: none;
+  background: white;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.editar{
+    width: 50%;
+    height: 15%;
+    border-radius: 8px;
+    padding:2%;
+    margin:5%;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: rgba(43, 43, 100, 1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.buut{
+  width: 30%;
+  height: 15%;
+  border-radius: 8px;
+  padding:2%;
+  margin:5%;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: rgba(43, 43, 100, 1);
+  transition: background-color 0.3s ease-in-out;
+}
+

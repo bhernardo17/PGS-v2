@@ -1,0 +1,296 @@
+body {
+    background-color: rgba(228, 232, 244, 1);
+    font-family: "Montserrat", sans-serif;
+    color: rgba(43, 43, 100, 1);
+    margin: 0;
+    padding: 0;
+}
+
+/* Título do Formulário */
+h2 {
+    color: rgba(43, 43, 100, 1);
+    text-align: center;
+    font-size: 24px;
+}
+
+.topo_form {
+    display: flex;
+    width: 99%;
+    gap:2%
+}
+
+.lados{
+    display: flex;
+    flex-direction: row;
+}
+/* Contêiner Principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste das seções esquerda e direita */
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 46%;  /* Mantendo a seção esquerda maior */
+    box-sizing: border-box;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;  /* Seção direita menor */
+    margin-left: 2%;
+    box-sizing: border-box;
+}
+
+.right .input-group, .right .input-container {
+    margin-bottom: 15px;
+}
+
+.long-fields {
+    flex: 1;
+}
+
+/* Estilo Responsivo para Mobile */
+@media (max-width: 768px) {
+    .left, .right {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .btn_cancelar, .btn_salvar {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* Limpar Flutuações */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Estilo dos Grupos de Input */
+.input-group, .input-container {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgba(43, 43, 100, 1);
+}
+
+.input-group input, 
+.input-group textarea, 
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Upload de Arquivos */
+.file-upload-label {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgba(43, 43, 100, 1);
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.file-upload-label:hover{
+    background-color: white;
+    color: rgba(43, 43, 100, 1);
+}
+
+/* Estilo dos Botões */
+.rodape_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn_cancelar, .btn_salvar {
+    width: 48%;
+    padding: 10px;
+    background-color: rgb(35, 35, 85);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn_cancelar {
+    background-color: rgb(124, 124, 128);
+}
+
+.btn_salvar:hover {
+    background-color: rgb(62, 62, 119);
+}
+
+.btn_cancelar:hover {
+    background-color: rgb(155, 23, 23);
+}
+
+/* Responsividade para campos de vigência */
+.vigencias_pos {
+    display: flex;
+    width: 42%;
+    flex-direction: row;
+    gap: 2%;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(43, 43, 100, 1);
+    padding-top: 20px;
+    transition: width 0.1s;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0 5% 5% 0;
+    font-size: 15px;
+    color: rgba(148, 168, 207, 1);
+}
+
+.sidebar a {
+    padding: 12px;
+    text-decoration: none;
+    color: rgba(148, 168, 207, 1);
+    display: flex;
+    align-items: center;
+    transition: padding 1s;
+    position: relative;
+}
+
+.sidebar a:hover::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(148, 168, 207, 0.6);
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open a:hover::before {
+    left: calc(22% - 18px - 25px);
+}
+
+.sidebar a:hover::before {
+    transform: scale(1);
+}
+
+.sidebar.open .sidebar-header a::before {
+    display: none;
+}
+
+.main-content {
+    margin-left: 50px;
+    padding: 20px;
+}
+
+.icon-text {
+    display: none;
+    color: rgba(148, 168, 207, 0.6);
+}
+.icon-text:hover {
+    display: block;
+    color: rgb(222, 222, 222); /* Altere a cor para a desejada */
+}
+
+
+.sidebar.open a {
+    padding: 12px 20px;
+    padding-left: 20px;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar.open .icon-text {
+    display: inline;
+}
+
+.sidebar.open .icon-middle {
+    margin-bottom: 15px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 100px;
+}
+
+.sidebar-header a {
+    margin-right: 10px;
+}
+
+.icon-middle {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar.open .icon-middle {
+    padding-right: 10px;
+}
+
+.sidebar.open .icon-middle .icon-text {
+    margin-left: 12px;
+}
+
+.bottom-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+.bottom-icons a {
+    display: block;
+    padding: 12px;
+    color: rgba(148, 168, 207, 1);
+    transition: padding 1s;
+    text-decoration: none;
+}
+
+/* .bottom-icons a:hover {
+    padding-left: 20px;
+} */
+
+.sidebar.open .bottom-middle {
+    padding-right: 10px;
+}
+
+.sidebar.open .bottom-icons .icon-text {
+    margin-left: 10px;
+}

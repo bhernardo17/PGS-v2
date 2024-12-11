@@ -1,0 +1,371 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 4%;
+    background-color: rgba(228, 232, 244, 1);
+}
+
+
+section {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    max-width: 100vh;
+}
+
+.primeiraLinha{
+    width: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.coluna{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin:2% 0 2% 0 ;
+    gap: 2%;
+    
+}
+
+.logodash{
+    width: 15%;
+    margin-top: -4%;
+}
+
+#painel3{
+    height: 100%; /* O canvas ocupa 100% da altura da div */
+}
+#painel4{
+    height: 100%; /* O canvas ocupa 100% da altura da div */
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.terceiraLInha{
+    display: flex;
+
+}
+
+/* style.css */
+.chart-legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chart-legend li {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.chart-legend li.selected {
+    color: rgba(255, 99, 132, 1); /* Cor quando selecionado */
+    font-size: 18px;
+}
+
+
+.panel {
+    
+}
+
+#panel1 {
+    width: 40%;
+    height: 100%;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+    margin-left: 2%;
+}
+
+#panel2 {
+    width: 60%;
+    height: auto;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+}
+
+
+#panel3 {
+    width: 45%;
+    height: 100%;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+    
+
+}
+
+
+#panel4 {
+    width: 40%;
+    height: 100%;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+    
+    
+}
+
+
+#panel5 {
+    width: 55%;
+    height: 100%;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+}
+
+
+
+
+#panel6 {
+    width: 45%;
+    height: 100%;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+    margin-left: 2%;
+}
+
+
+#panel7 {
+    display: flex;
+    width: 30%;
+    height: 40%;
+    border-radius: 22px;
+    color: #fff;
+    background-color: rgba(43, 43, 100, 0.9);
+    margin-bottom: 20px;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+#panelTeste{
+    width: 60%;
+    height: 277px;
+    border-radius: 15px;
+    color: #fff;
+    background-color:rgba(43, 43, 100, 0.9);
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+
+/* Adicione isso ao seu CSS ou dentro de uma tag <style> no HTML */
+#modal {
+    overflow: auto; /* Adiciona rolagem ao modal, se necessário */
+}
+
+#modal > div {
+    overflow: auto; /* Adiciona rolagem ao conteúdo do modal, se necessário */
+}
+
+#testeFornecedor {
+    max-height: 400px; /* Altura máxima para o gráfico */
+    width: 100%; /* Faz o gráfico ocupar toda a largura disponível */
+}
+
+
+.info-box {
+    background-color: rgba(43, 43, 100, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 21px;
+    margin: 2% 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-box span {
+    font-size: 40px;
+    color: #f4f4f4;
+    margin-bottom: 1px;
+    background-color: #989595;
+    border: 1px solid #2e2c2c;
+    border-radius: 20%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h4 {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #989595;
+    margin: 0;
+    height: 33px; /* Defina uma altura fixa */
+    width: 150%; /* Defina uma largura fixa */
+    text-align: center; /* Centralize horizontalmente */
+    display: absolute;
+    justify-content: center; /* Centralize horizontalmente */
+    align-items: center; /* Centralize verticalmente */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+/* Estilo para o seletor */
+#gasto-select {
+    background-color: #f4f4f4;
+    color: #2e2c2c;
+    border: 1px solid #989595;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px; /* Espaçamento entre o seletor e o texto de exibição */
+    font-size: 16px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(43, 43, 100, 1);
+    padding-top: 20px;
+    transition: width 0.1s;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0 5% 5% 0;
+    font-size: 15px;
+    color: rgba(148, 168, 207, 1);
+}
+  
+.sidebar a {
+    padding: 12px;
+    text-decoration: none;
+    color: rgba(148, 168, 207, 1);
+    display: flex;
+    align-items: center;
+    transition: padding 1s;
+    position: relative;
+}
+  
+.sidebar a:hover::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(148, 168, 207, 0.6);
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+  
+.sidebar.open a:hover::before {
+    left: calc(22% - 18px - 25px);
+}
+  
+.sidebar a:hover::before {
+    transform: scale(1);
+}
+  
+.sidebar.open .sidebar-header a::before {
+    display: none;
+}
+  
+.main-content {
+    margin-left: 50px;
+    padding: 20px;
+}
+  
+.icon-text {
+    display: none;
+    color: rgba(148, 168, 207, 0.6);
+}
+  
+.icon-text:hover {
+    display: block;
+    color: rgb(222, 222, 222); 
+}
+  
+  
+.sidebar.open a {
+    padding: 12px 20px;
+    padding-left: 20px;
+}
+  
+  
+.sidebar.open {
+    width: 250px;
+}
+
+  
+.sidebar.open .icon-text {
+    display: inline;
+}
+  
+  
+.sidebar.open .icon-middle {
+    margin-bottom: 15px;
+}
+  
+  
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 100px;
+}
+  
+  
+.sidebar-header a {
+    margin-right: 10px;
+}
+  
+  
+.icon-middle {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+  
+  
+.sidebar.open .icon-middle {
+    padding-right: 10px;
+}
+  
+  
+.sidebar.open .icon-middle .icon-text {
+    margin-left: 12px;
+}
+  
+  
+.bottom-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+  
+  
+.bottom-icons a {
+    display: block;
+    padding: 12px;
+    color: rgba(148, 168, 207, 1);
+    transition: padding 1s;
+    text-decoration: none;
+}
+  
+.sidebar.open .bottom-middle {
+    padding-right: 10px;
+}
+  
+  
+.sidebar.open .bottom-icons .icon-text {
+    margin-left: 10px;
+}
